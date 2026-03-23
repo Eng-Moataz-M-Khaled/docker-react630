@@ -8,7 +8,7 @@ pipeline {
             steps {
                 script {
 
-                    sh 'docker build -t moatazmkhaled/docker-react -f Dockerfile.dev'
+                    sh 'docker build -t moatazmkhaled/docker-react -f Dockerfile.dev .'
                 }
             }
         }
