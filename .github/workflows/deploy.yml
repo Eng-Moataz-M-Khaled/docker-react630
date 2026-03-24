@@ -13,17 +13,17 @@ jobs:
       - run: docker build -t moatazmkhaled/react-test -f Dockerfile.dev .
       - run: docker run -e CI=true moatazmkhaled/react-test npm run test
 
-    #create artifact for deployment
-      - name: Generate deployment package
-        run: zip -r deploy.zip . -x '*.git*'
+    # #create artifact for deployment
+    #   - name: Generate deployment package
+    #     run: zip -r deploy.zip . -x '*.git*'
 
-      - name: Deploy to EB (Elastic Beanstalk)
-        uses: einaregilsson/beanstalk-deploy@v22
-        with:
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: "react"
-          environment_name: "React-env"
-          version_label: ${{ github.sha }}
-          region: us-east-1
-          deployment_package: deploy.zip
+    #   - name: Deploy to EB (Elastic Beanstalk)
+    #     uses: einaregilsson/beanstalk-deploy@v22
+    #     with:
+    #       aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #       aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    #       application_name: "react"
+    #       environment_name: "React-env"
+    #       version_label: ${{ github.sha }}
+    #       region: us-east-1
+    #       deployment_package: deploy.zip
