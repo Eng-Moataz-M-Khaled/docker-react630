@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          one more time
+          Let's wait for the environment to be ready.
         </p>
         <a
           className="App-link"
